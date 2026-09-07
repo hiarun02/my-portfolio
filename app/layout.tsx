@@ -1,7 +1,8 @@
-import type {Metadata} from "next";
-import {Inter, Poppins, JetBrains_Mono} from "next/font/google";
+import type { Metadata } from "next";
+import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Schema from "./schema";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Main font for body text
 const poppins = Poppins({
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     "Frontend Developer",
     "Backend Developer",
   ],
-  authors: [{name: "Arun Kumar", url: "https://hiarun.me"}],
+  authors: [{ name: "Arun Kumar", url: "https://hiarun.me" }],
   creator: "Arun Kumar",
   publisher: "Arun Kumar",
   robots: {
@@ -105,7 +106,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         <Schema />
-        {children}
+        <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
   );
