@@ -1,11 +1,47 @@
 import Image from "next/image";
 import UpdatedDate from "./UpdatedDate";
 import IndiaTime from "./IndiaTime";
+import VinylDisk from "../components/svgs/vinyl_disk";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { useEffect, useRef, useState } from "react";
+
 // import AvailableTag from "./AvailableTag";
 // import {socials} from "./Data/SocialData";
 // rounded-lg border border-zinc-700
 
 export default function About() {
+
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  useEffect(() => {
+    return () => {
+      audioRef.current?.pause()
+    }
+  }, [])
+
+  const toggleMusic = async () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio('Nothing-To-Prove.mp3')
+      audioRef.current.loop = true
+    }
+
+    if (isPlaying) {
+      audioRef.current.pause()
+      setIsPlaying(false)
+      return
+    }
+
+    try {
+      await audioRef.current.play()
+      setIsPlaying(true)
+    } catch {
+      setIsPlaying(false)
+    }
+  }
+
+
+
   return (
     <div className="">
       {/* Profile Header */}
@@ -14,7 +50,7 @@ export default function About() {
         {/* Profile Content */}
         <div className="flex items-center gap-5">
           {/* Profile Image */}
-          <div className="flex-shrink-0 ">
+          <div className="flex-shrink-0">
             <div
               className="w-15 h-15 overflow-hidden rounded-xl border-2
              border-zinc-600 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-zinc-800/50 hover:border-zinc-500 cursor-pointer group"
@@ -51,6 +87,24 @@ export default function About() {
         <div className=" flex items-center gap-2 mb-2">
           <UpdatedDate />
           <IndiaTime />
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                className="flex h-7 w-7 shrink-0 items-center justify-center overflow-visible rounded-full outline-none transition-transform hover:scale-105 focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-95"
+                onClick={toggleMusic}
+                aria-label="Favourite music"
+                aria-pressed={isPlaying}
+              >
+                <VinylDisk
+                  className="h-5 w-7 dark:invert"
+                  isPlaying={isPlaying}
+                />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent>Do you want to listen the music?</TooltipContent>
+          </Tooltip>
         </div>
         <p className="text-zinc-300  text-base leading-relaxed mb-4">
           Full stack developer who loves building things that feel smooth, work
