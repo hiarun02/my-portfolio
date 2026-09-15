@@ -33,13 +33,13 @@ export default function Home() {
           <Blogs />
         </section> */}
 
-       
+
 
         {/* Open Source */}
         <section aria-label="Open Source Contributions">
           <OpenSource />
-        </section> 
-        
+        </section>
+
         {/* GitHub State */}
         <section aria-label="GitHub Activity">
           <GitHubState />
@@ -50,22 +50,22 @@ export default function Home() {
           <HackathonSection />
         </section>
 
-      
+
 
         {/* SupprtME */}
         {/* <SupportMe /> */}
       </article>
 
-        {/* skills  */}
-        <section aria-label="Skills">
-          <Skills />
-        </section>
+      {/* skills  */}
+      <section aria-label="Skills">
+        <Skills />
+      </section>
 
 
-          {/* Contact Section */}
-        <section id="contact" aria-label="Contact Information">
-          <Contact />
-        </section>
+      {/* Contact Section */}
+      <section id="contact" aria-label="Contact Information">
+        <Contact />
+      </section>
 
 
       {/* Footer */}

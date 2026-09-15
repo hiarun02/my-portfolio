@@ -1,6 +1,7 @@
 import Image from "next/image";
 import UpdatedDate from "./UpdatedDate";
 import IndiaTime from "./IndiaTime";
+import AnonymousMessage from "./AnonymousMessage";
 import VinylDisk from "../components/svgs/vinyl_disk";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { useEffect, useRef, useState } from "react";
@@ -22,7 +23,7 @@ export default function About() {
 
   const toggleMusic = async () => {
     if (!audioRef.current) {
-      audioRef.current = new Audio('Nothing-To-Prove.mp3')
+      audioRef.current = new Audio('Interstellar_music.mp3')
       audioRef.current.loop = true
     }
 
@@ -46,7 +47,7 @@ export default function About() {
     <div className="">
       {/* Profile Header */}
       {/* <AvailableTag /> */}
-      <div className="mb-5 rounded-xl border border-zinc-800/80 bg-gradient-to-r from-zinc-900/60 via-zinc-900/30 to-transparent px-2 py-3">
+      <div className="mb-5 rounded-xl border border-zinc-800/80 px-2 py-3">
         {/* Profile Content */}
         <div className="flex items-center gap-5">
           {/* Profile Image */}
@@ -88,6 +89,10 @@ export default function About() {
           <UpdatedDate />
           <IndiaTime />
 
+          <span aria-hidden="true" className="mx-1 h-4 w-px bg-zinc-700" />
+
+          <AnonymousMessage />
+
           <Tooltip>
             <TooltipTrigger asChild>
               <button
@@ -98,12 +103,12 @@ export default function About() {
                 aria-pressed={isPlaying}
               >
                 <VinylDisk
-                  className="h-5 w-7 dark:invert"
+                  className="music-player-icon h-5 w-7 dark:invert"
                   isPlaying={isPlaying}
                 />
               </button>
             </TooltipTrigger>
-            <TooltipContent>Do you want to listen the music?</TooltipContent>
+            <TooltipContent>play music</TooltipContent>
           </Tooltip>
         </div>
         <p className="text-zinc-300  text-base leading-relaxed mb-4">
