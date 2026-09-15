@@ -29,7 +29,7 @@ export default function HackathonSection() {
                         </h3>
 
                         {isWinner && (
-                          <span className="mt-2 inline-flex w-fit items-center rounded-full border border-amber-500/20 bg-amber-500/10 px-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-amber-300">
+                          <span className="hackathon-winner-badge mt-2 inline-flex w-fit items-center rounded-full border border-amber-500/20 bg-amber-500/10 px-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-amber-300">
                             Winner
                           </span>
                         )}

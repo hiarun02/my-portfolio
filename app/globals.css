@@ -82,14 +82,20 @@ body {
 }
 
 /* Typography improvements */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-inter), system-ui, sans-serif;
   font-weight: 600;
   line-height: 1.2;
 }
 
 /* Code and tech stack styling */
-code, .font-mono {
+code,
+.font-mono {
   font-family: var(--font-mono), 'Courier New', monospace;
 }
 
@@ -115,38 +121,51 @@ p {
 
 /* Enhanced blur overlay animations */
 @keyframes blurFadeOut {
-  0% { 
-    opacity: 1; 
+  0% {
+    opacity: 1;
     backdrop-filter: blur(20px);
     transform: scale(1);
   }
-  70% { 
-    opacity: 0.8; 
+
+  70% {
+    opacity: 0.8;
     backdrop-filter: blur(15px);
     transform: scale(1.01);
   }
-  100% { 
-    opacity: 0; 
+
+  100% {
+    opacity: 0;
     backdrop-filter: blur(0px);
     transform: scale(1.05);
   }
 }
 
 @keyframes pulseSlow {
-  0%, 100% { 
-    opacity: 0.7; 
+
+  0%,
+  100% {
+    opacity: 0.7;
     transform: scale(1);
   }
-  50% { 
-    opacity: 1; 
+
+  50% {
+    opacity: 1;
     transform: scale(1.02);
   }
 }
 
 @keyframes fadeText {
-  0% { opacity: 0.5; }
-  50% { opacity: 1; }
-  100% { opacity: 0.8; }
+  0% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
 }
 
 .animate-blur-fade-out {
@@ -163,64 +182,76 @@ p {
 
 /* Additional effects for enhanced blur */
 @keyframes float {
-  0%, 100% { 
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
     opacity: 0.3;
   }
-  50% { 
+
+  50% {
     transform: translateY(-20px) rotate(180deg);
     opacity: 0.8;
   }
 }
 
 @keyframes glowPulse {
-  0%, 100% { 
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.3;
   }
-  50% { 
+
+  50% {
     transform: scale(1.2);
     opacity: 0.6;
   }
 }
 
 @keyframes lineSlide {
-  0% { 
+  0% {
     transform: translateX(-100%);
     opacity: 0;
   }
-  50% { 
+
+  50% {
     opacity: 1;
   }
-  100% { 
+
+  100% {
     transform: translateX(100%);
     opacity: 0;
   }
 }
 
 @keyframes lineSlideReverse {
-  0% { 
+  0% {
     transform: translateX(100%);
     opacity: 0;
   }
-  50% { 
+
+  50% {
     opacity: 1;
   }
-  100% { 
+
+  100% {
     transform: translateX(-100%);
     opacity: 0;
   }
 }
 
 @keyframes lineVertical {
-  0% { 
+  0% {
     transform: translateY(-100%);
     opacity: 0;
   }
-  50% { 
+
+  50% {
     opacity: 1;
   }
-  100% { 
+
+  100% {
     transform: translateY(100%);
     opacity: 0;
   }
@@ -362,8 +393,8 @@ p {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
-
